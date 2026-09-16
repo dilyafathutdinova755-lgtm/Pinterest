@@ -44,8 +44,8 @@
     left:50%; top:-14cqw; transform:translateX(-50%) rotate(-4deg);
   }
 
-  .stage{ position:relative; z-index:2; height:100%; display:flex; flex-direction:column;
-          padding:44cqw 6.5cqw 4cqw; }
+  .stage{ position:absolute; inset:0; z-index:2; display:flex; flex-direction:column;
+          justify-content:center; padding:38cqw 6.5cqw 10cqw; }
 
   .stat{ display:flex; align-items:flex-start; gap:1.4cqw; align-self:center; }
   .stat b{
@@ -62,11 +62,9 @@
     font-size:5.2cqw; letter-spacing:.01em; text-transform:uppercase; color:#FBF3E0;
   }
   .sub{
-    margin-top:2.8cqw; text-align:center; align-self:center; max-width:80%;
+    margin:2.8cqw 0 0; text-align:center; align-self:center; max-width:80%;
     font-size:3.4cqw; line-height:1.4; font-style:italic; color:#F3D9C4;
   }
-
-  .spacer{ flex:1 1 auto; min-height:2cqw; }
 
   .sticker{ position:absolute; z-index:1; pointer-events:none;
     filter:drop-shadow(0 .5cqw 1cqw rgba(0,0,0,.3)); }
@@ -74,9 +72,10 @@
   .s-pumpkin{ width:12cqw; right:-1.5cqw; bottom:6cqw; transform:rotate(10deg); }
 
   .bottom-text{
-    text-align:center; align-self:center;
+    margin-top:7cqw; text-align:center; align-self:center;
     font-family:'Oswald',system-ui,-apple-system,sans-serif; font-weight:600;
-    font-size:3cqw; letter-spacing:.1em; text-transform:uppercase; color:#F8E7D6;
+    font-size:3.4cqw; letter-spacing:.1em; text-transform:uppercase; color:#F8E7D6;
+    padding-top:4cqw; border-top:.25cqw solid rgba(251,243,224,.35);
   }
   .bottom-text b{ color:#FBF3E0; font-weight:800; }
 
@@ -104,8 +103,6 @@
     <div class="stat"><b>3000</b><span>+</span></div>
     <div class="caption">заданий ФИПИ бесплатно</div>
     <p class="sub">пробники, разбор ошибок и трекер прогресса — прямо в приложении</p>
-
-    <div class="spacer"></div>
 
     <div class="bottom-text"><b>ЕГЭ Тренажёр</b> · ссылка под пином</div>
   </div>
