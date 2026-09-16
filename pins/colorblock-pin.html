@@ -1,0 +1,124 @@
+<title>Блок ЕГЭ Тренажёра</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700;800&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap">
+<style>
+  :root{
+    --page-bg:#EFE7DA; --page-ink:#3A2A1E; --page-muted:#7A6753;
+    --page-card:#FBF6EC; --page-line:#D9CCB8;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --page-bg:#1E1712; --page-ink:#EFE3D2; --page-muted:#A2917C;
+      --page-card:#2A211A; --page-line:#3E332A;
+    }
+  }
+  :root[data-theme="dark"]{
+    --page-bg:#1E1712; --page-ink:#EFE3D2; --page-muted:#A2917C;
+    --page-card:#2A211A; --page-line:#3E332A;
+  }
+  body{
+    background:var(--page-bg); color:var(--page-ink);
+    font-family:'PT Serif',Georgia,serif;
+    padding-block:32px 56px; padding-left:16px; padding-right:16px;
+    display:flex; flex-direction:column; align-items:center; gap:22px;
+  }
+  .kicker{ font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--page-muted); text-align:center; }
+
+  .pin{
+    container-type:inline-size; width:min(100%,420px); aspect-ratio:2/3;
+    border-radius:8px; overflow:hidden; position:relative;
+    box-shadow:0 2px 4px rgba(40,22,10,.18), 0 18px 46px rgba(40,22,10,.22);
+    background:#C1512B;
+  }
+  .pin::after{
+    content:""; position:absolute; inset:0; z-index:1; pointer-events:none;
+    background:radial-gradient(120% 60% at 100% 0%, rgba(255,255,255,.10), transparent 60%),
+               radial-gradient(90% 55% at 0% 100%, rgba(0,0,0,.18), transparent 60%);
+  }
+
+  /* ---------- иконка — огромным пластом, без рамок, бликует за верхний край ---------- */
+  .icon-slab{
+    position:absolute; z-index:0; width:56cqw;
+    left:50%; top:-14cqw; transform:translateX(-50%) rotate(-4deg);
+  }
+
+  .stage{ position:relative; z-index:2; height:100%; display:flex; flex-direction:column;
+          padding:44cqw 6.5cqw 4cqw; }
+
+  .stat{ display:flex; align-items:flex-start; gap:1.4cqw; align-self:center; }
+  .stat b{
+    font-family:'Oswald',system-ui,-apple-system,sans-serif; font-weight:800;
+    font-size:19cqw; line-height:.82; color:#FBF3E0; letter-spacing:-.01em;
+  }
+  .stat span{
+    font-family:'Oswald',system-ui,-apple-system,sans-serif; font-weight:700;
+    font-size:5cqw; color:#FBF3E0; margin-top:.8cqw;
+  }
+  .caption{
+    margin-top:1.4cqw; text-align:center; align-self:center;
+    font-family:'Oswald',system-ui,-apple-system,sans-serif; font-weight:700;
+    font-size:5.2cqw; letter-spacing:.01em; text-transform:uppercase; color:#FBF3E0;
+  }
+  .sub{
+    margin-top:2.8cqw; text-align:center; align-self:center; max-width:80%;
+    font-size:3.4cqw; line-height:1.4; font-style:italic; color:#F3D9C4;
+  }
+
+  .spacer{ flex:1 1 auto; min-height:2cqw; }
+
+  .sticker{ position:absolute; z-index:1; pointer-events:none;
+    filter:drop-shadow(0 .5cqw 1cqw rgba(0,0,0,.3)); }
+  .s-leaf{ width:14cqw; left:-2.5cqw; bottom:19cqw; transform:rotate(-16deg); }
+  .s-pumpkin{ width:12cqw; right:-1.5cqw; bottom:6cqw; transform:rotate(10deg); }
+
+  .bottom-text{
+    text-align:center; align-self:center;
+    font-family:'Oswald',system-ui,-apple-system,sans-serif; font-weight:600;
+    font-size:3cqw; letter-spacing:.1em; text-transform:uppercase; color:#F8E7D6;
+  }
+  .bottom-text b{ color:#FBF3E0; font-weight:800; }
+
+  .meta{
+    width:min(100%,420px); background:var(--page-card); border:1px solid var(--page-line);
+    border-radius:10px; padding:18px 18px 16px;
+  }
+  .meta h2{ font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--page-muted); font-family:'PT Serif',Georgia,serif; }
+  .meta dl{ margin-top:12px; display:grid; grid-template-columns:auto 1fr; gap:9px 14px; font-size:13.5px; line-height:1.45; }
+  .meta dt{ color:var(--page-muted); white-space:nowrap; }
+  .meta dd{ color:var(--page-ink); }
+  .meta .note{ margin-top:14px; padding-top:12px; border-top:1px solid var(--page-line);
+               font-size:12.5px; line-height:1.5; color:var(--page-muted); }
+  @media (max-width:420px){ .meta dl{ grid-template-columns:1fr; gap:2px 0; } .meta dd{ margin-bottom:8px; } }
+</style>
+
+<p class="kicker">вариант 4 · цветной блок · вертикаль 2:3 · 1000 × 1500</p>
+
+<div class="pin">
+  <img class="icon-slab" src="assets/ege-trenazher-icon.png" alt="ЕГЭ Тренажёр">
+  <img class="sticker s-leaf" src="assets/sticker-leaf.png" alt="">
+  <img class="sticker s-pumpkin" src="assets/sticker-pumpkin.png" alt="">
+
+  <div class="stage">
+    <div class="stat"><b>3000</b><span>+</span></div>
+    <div class="caption">заданий ФИПИ бесплатно</div>
+    <p class="sub">пробники, разбор ошибок и трекер прогресса — прямо в приложении</p>
+
+    <div class="spacer"></div>
+
+    <div class="bottom-text"><b>ЕГЭ Тренажёр</b> · ссылка под пином</div>
+  </div>
+</div>
+
+<div class="meta">
+  <h2>Паспорт пина</h2>
+  <dl>
+    <dt>Заголовок</dt><dd>ЕГЭ Тренажёр — 3000+ заданий ФИПИ бесплатно</dd>
+    <dt>Описание</dt><dd>Пробники, разбор ошибок и трекер прогресса к ЕГЭ — 3000+ заданий из банка ФИПИ бесплатно в ЕГЭ Тренажёре.</dd>
+    <dt>Доска</dt><dd>ЕГЭ Тренажёр · Приложения для учёбы</dd>
+    <dt>Ключевые</dt><dd>егэ тренажёр, банк фипи, подготовка к егэ, приложение для егэ, егэ 2027</dd>
+    <dt>Alt-текст</dt><dd>Пин ЕГЭ Тренажёра на сплошном терракотовом фоне: крупная цифра «3000+», огромная иконка приложения сверху и стикеры листа с тыквой по краям</dd>
+  </dl>
+  <p class="note">Четвёртый вариант — плоский цветной блок, формат app-промо. Сплошной терракотовый фон вместо клетки, крупная статистика вместо чек-листа. Иконка ЕГЭ Тренажёра без рамок и подложек — огромным пластом выходит за верхний край пина.</p>
+</div>

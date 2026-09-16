@@ -77,31 +77,29 @@
 
   .spacer{ flex:1 1 auto; min-height:2cqw; }
 
-  .bottom-row{ display:flex; align-items:center; justify-content:space-between; gap:3cqw; }
+  .bottom-row{ display:flex; align-items:flex-end; justify-content:space-between; gap:3cqw; }
 
-  .badge{
-    display:flex; align-items:center; gap:1.8cqw;
-    background:rgba(251,243,224,.94); border-radius:99px;
-    padding:1.5cqw 3.6cqw 1.5cqw 1.5cqw;
-    box-shadow:0 .6cqw 1.6cqw rgba(0,0,0,.35);
-  }
-  .badge img{ width:7.4cqw; height:7.4cqw; border-radius:1.8cqw; display:block; }
-  .badge-text{ display:flex; flex-direction:column; line-height:1.15; }
-  .badge-text b{
+  .bottom-text{ display:flex; flex-direction:column; line-height:1.2; padding-bottom:1cqw; }
+  .bottom-text b{
     font-family:'Oswald',system-ui,-apple-system,sans-serif; font-weight:700;
-    font-size:2.9cqw; letter-spacing:.03em; text-transform:uppercase; color:#2B2118;
+    font-size:3.6cqw; letter-spacing:.03em; text-transform:uppercase; color:#FBF3E0;
+    text-shadow:0 .3cqw 1cqw rgba(0,0,0,.5);
   }
-  .badge-text span{
-    font-family:'PT Serif',Georgia,serif; font-size:2.4cqw; color:#7A6753; margin-top:.2cqw;
+  .bottom-text span{
+    font-family:'PT Serif',Georgia,serif; font-size:2.6cqw; color:#E7DCC4; margin-top:.3cqw;
   }
 
-  .cta-mark{
-    flex:0 0 auto; width:10cqw; height:10cqw; border-radius:50%;
-    background:#E2793A; color:#FBF3E0;
-    display:flex; align-items:center; justify-content:center;
-    font-family:'Oswald',system-ui,-apple-system,sans-serif; font-weight:700; font-size:4.6cqw;
-    box-shadow:0 .6cqw 1.6cqw rgba(0,0,0,.35);
+  /* ---------- иконка — огромным пластом, без рамок и подложек ---------- */
+  .icon-slab{
+    position:absolute; z-index:2; width:34cqw;
+    right:-6cqw; bottom:-3cqw; transform:rotate(6deg);
+    filter:drop-shadow(0 1cqw 2cqw rgba(0,0,0,.45));
   }
+
+  .sticker{ position:absolute; z-index:2; pointer-events:none;
+    filter:drop-shadow(0 .5cqw 1cqw rgba(0,0,0,.4)); }
+  .s-candle{ width:11cqw; top:52cqw; right:4cqw; transform:rotate(-8deg); }
+  .s-roll{ width:12cqw; top:5cqw; right:5cqw; transform:rotate(10deg); }
 
   /* ---------- паспорт пина ---------- */
   .meta{
@@ -125,6 +123,9 @@
 <div class="pin">
   <img class="photo" src="assets/study-photo.jpg" alt="Рабочий стол с ноутбуком, конспектом и чаем">
   <div class="scrim"></div>
+  <img class="sticker s-roll" src="assets/sticker-cinnamon-roll.png" alt="">
+  <img class="sticker s-candle" src="assets/sticker-candle.png" alt="">
+  <img class="icon-slab" src="assets/ege-trenazher-icon.png" alt="ЕГЭ Тренажёр">
 
   <div class="stage">
     <div class="eyebrow">готовимся к экзамену не в панике, а по плану</div>
@@ -134,11 +135,7 @@
     <div class="spacer"></div>
 
     <div class="bottom-row">
-      <div class="badge">
-        <img src="assets/ege-trenazher-icon.png" alt="ЕГЭ Тренажёр">
-        <div class="badge-text"><b>Тренажёр</b><span>бесплатно · ссылка под пином</span></div>
-      </div>
-      <div class="cta-mark">↓</div>
+      <div class="bottom-text"><span>бесплатно · ссылка под пином</span></div>
     </div>
   </div>
 </div>
@@ -152,5 +149,5 @@
     <dt>Ключевые</dt><dd>егэ тренажёр, подготовка к егэ, егэ 2027, 11 класс, учёба без стресса</dd>
     <dt>Alt-текст</dt><dd>Плакатный пин ЕГЭ Тренажёра: крупная надпись «ЕГЭ Тренажёр» на фото рабочего стола с ноутбуком, конспектом и чаем</dd>
   </dl>
-  <p class="note">Второй вариант, плакатный: крупный заголовок шрифтом Oswald (тот самый вытянутый плотный шрифт, как «РАССЛАБЬСЯ» и «BUT FIRST, COFFEE» в референсах) поверх настоящей фотографии рабочего стола, весь остальной текст — засечным PT Serif, как подпись «ты делаешь всё, что можешь» в примере. Фото взято из ваших материалов (реальный рабочий стол во время подготовки) — плейсхолдер, замените на свою съёмку под задачу. Первый вариант (клетка + чек-лист) остаётся отдельным пином для сравнения.</p>
+  <p class="note">Плакатный вариант: заголовок шрифтом Oswald поверх настоящей фотографии рабочего стола, второстепенный текст — засечным PT Serif. Иконка ЕГЭ Тренажёра — без рамок и подложек, огромным пластом уходит за нижний край. Стикеры (булочка, свеча) — настоящие вырезки из пака. Фото — из ваших материалов, плейсхолдер под замену на свою съёмку.</p>
 </div>

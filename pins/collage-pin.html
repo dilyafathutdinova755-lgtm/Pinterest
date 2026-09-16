@@ -1,0 +1,139 @@
+<title>Коллаж ЕГЭ Тренажёра</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700;800&family=Caveat:wght@600;700&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap">
+<style>
+  :root{
+    --page-bg:#EFE7DA; --page-ink:#3A2A1E; --page-muted:#7A6753;
+    --page-card:#FBF6EC; --page-line:#D9CCB8;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --page-bg:#1E1712; --page-ink:#EFE3D2; --page-muted:#A2917C;
+      --page-card:#2A211A; --page-line:#3E332A;
+    }
+  }
+  :root[data-theme="dark"]{
+    --page-bg:#1E1712; --page-ink:#EFE3D2; --page-muted:#A2917C;
+    --page-card:#2A211A; --page-line:#3E332A;
+  }
+  body{
+    background:var(--page-bg); color:var(--page-ink);
+    font-family:'PT Serif',Georgia,serif;
+    padding-block:32px 56px; padding-left:16px; padding-right:16px;
+    display:flex; flex-direction:column; align-items:center; gap:22px;
+  }
+  .kicker{ font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--page-muted); text-align:center; }
+
+  .pin{
+    container-type:inline-size; width:min(100%,420px); aspect-ratio:2/3;
+    border-radius:8px; overflow:hidden; position:relative;
+    box-shadow:0 2px 4px rgba(40,22,10,.18), 0 18px 46px rgba(40,22,10,.22);
+    background:
+      radial-gradient(1.4px 1.4px at 12% 8%, rgba(58,42,30,.10) 100%, transparent),
+      radial-gradient(1.4px 1.4px at 68% 22%, rgba(58,42,30,.08) 100%, transparent),
+      radial-gradient(1.4px 1.4px at 34% 56%, rgba(58,42,30,.09) 100%, transparent),
+      radial-gradient(1.4px 1.4px at 82% 74%, rgba(58,42,30,.08) 100%, transparent),
+      radial-gradient(1.4px 1.4px at 20% 88%, rgba(58,42,30,.09) 100%, transparent),
+      #F2E7D3;
+  }
+
+  .stage{ position:relative; z-index:3; height:100%; display:flex; flex-direction:column;
+          padding:6cqw 6.5cqw 4cqw; }
+
+  .eyebrow{ font-family:'Caveat',cursive; font-weight:700; font-size:5.6cqw; color:#B5502A;
+    transform:rotate(-3deg); align-self:flex-start; }
+  .head{
+    font-family:'Oswald',system-ui,-apple-system,sans-serif; font-weight:800;
+    font-size:13.6cqw; line-height:.9; letter-spacing:-.005em; text-transform:uppercase;
+    color:#2A1E14; margin-top:1.2cqw;
+  }
+  .head .accent{ color:#C24A1E; }
+  .sub{ margin-top:3.4cqw; max-width:70%; font-size:3.5cqw; line-height:1.42; color:#5A4834; }
+  .sub b{ color:#2A1E14; font-weight:700; }
+
+  .spacer{ flex:1 1 auto; min-height:4cqw; }
+
+  .bottom{ display:flex; align-items:flex-end; }
+  .bottom-text{ display:flex; flex-direction:column; gap:.6cqw; padding-bottom:2cqw; max-width:44%; }
+  .bottom-text b{
+    font-family:'Oswald',system-ui,-apple-system,sans-serif; font-weight:700;
+    font-size:3.6cqw; letter-spacing:.02em; text-transform:uppercase; color:#2A1E14;
+  }
+  .bottom-text span{ font-size:2.8cqw; color:#7A5A38; }
+
+  /* ---------- иконка — без рамок, просто огромным пластом ---------- */
+  .icon-slab{
+    position:absolute; z-index:2; width:42cqw;
+    right:-8cqw; bottom:-7cqw; transform:rotate(-6deg);
+    filter:drop-shadow(0 1cqw 2cqw rgba(20,10,4,.28));
+  }
+
+  /* ---------- реальные стикеры из пака ---------- */
+  .sticker{ position:absolute; z-index:1; pointer-events:none;
+    filter:drop-shadow(0 .5cqw 1cqw rgba(30,15,5,.28)); }
+  .s-books{ width:16cqw; top:19cqw; left:-2cqw; transform:rotate(-10deg); }
+  .s-bow{ width:12cqw; top:3cqw; right:5cqw; transform:rotate(9deg); }
+  .s-roll{ width:12cqw; top:48cqw; right:-1.5cqw; transform:rotate(-8deg); }
+  .s-candle{ width:11cqw; top:34cqw; right:1cqw; transform:rotate(6deg); }
+  .s-leaf{ width:11cqw; top:64cqw; right:2cqw; transform:rotate(16deg); }
+
+  .tape{
+    position:absolute; z-index:2; width:15cqw; height:4.6cqw;
+    background:rgba(243,194,74,.72); box-shadow:0 .3cqw .6cqw rgba(0,0,0,.08);
+  }
+  .tape--1{ top:1.5cqw; left:29cqw; transform:rotate(-4deg); }
+
+  .meta{
+    width:min(100%,420px); background:var(--page-card); border:1px solid var(--page-line);
+    border-radius:10px; padding:18px 18px 16px;
+  }
+  .meta h2{ font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--page-muted); font-family:'PT Serif',Georgia,serif; }
+  .meta dl{ margin-top:12px; display:grid; grid-template-columns:auto 1fr; gap:9px 14px; font-size:13.5px; line-height:1.45; }
+  .meta dt{ color:var(--page-muted); white-space:nowrap; }
+  .meta dd{ color:var(--page-ink); }
+  .meta .note{ margin-top:14px; padding-top:12px; border-top:1px solid var(--page-line);
+               font-size:12.5px; line-height:1.5; color:var(--page-muted); }
+  @media (max-width:420px){ .meta dl{ grid-template-columns:1fr; gap:2px 0; } .meta dd{ margin-bottom:8px; } }
+</style>
+
+<p class="kicker">вариант 3 · коллаж · вертикаль 2:3 · 1000 × 1500</p>
+
+<div class="pin">
+  <div class="tape tape--1"></div>
+  <img class="sticker s-books" src="assets/sticker-books.png" alt="">
+  <img class="sticker s-bow" src="assets/sticker-bow.png" alt="">
+  <img class="sticker s-roll" src="assets/sticker-cinnamon-roll.png" alt="">
+  <img class="sticker s-candle" src="assets/sticker-candle.png" alt="">
+  <img class="sticker s-leaf" src="assets/sticker-leaf.png" alt="">
+
+  <img class="icon-slab" src="assets/ege-trenazher-icon.png" alt="ЕГЭ Тренажёр">
+
+  <div class="stage">
+    <div class="eyebrow">короче,</div>
+    <h1 class="head">хватит<br>бояться<br><span class="accent">ЕГЭ</span></h1>
+    <p class="sub">Пробники, разбор ошибок и трекер прогресса — <b>в одном приложении</b>, бесплатно.</p>
+
+    <div class="spacer"></div>
+
+    <div class="bottom">
+      <div class="bottom-text">
+        <b>ЕГЭ Тренажёр</b>
+        <span>ссылка под пином</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="meta">
+  <h2>Паспорт пина</h2>
+  <dl>
+    <dt>Заголовок</dt><dd>Хватит бояться ЕГЭ — пробники и трекер прогресса бесплатно</dd>
+    <dt>Описание</dt><dd>ЕГЭ Тренажёр: пробники, разбор ошибок и трекер прогресса в одном приложении. Скачать бесплатно.</dd>
+    <dt>Доска</dt><dd>ЕГЭ Тренажёр · Подготовка к ЕГЭ</dd>
+    <dt>Ключевые</dt><dd>егэ тренажёр, подготовка к егэ, егэ 2027, 11 класс, приложение для егэ</dd>
+    <dt>Alt-текст</dt><dd>Коллажный пин ЕГЭ Тренажёра: заголовок «хватит бояться ЕГЭ», настоящие осенние стикеры и огромная иконка приложения, выходящая за край</dd>
+  </dl>
+  <p class="note">Третий вариант — коллаж/скрапбук, без клетки. Плоский кремовый фон с лёгкой зернистой текстурой, реальные стикеры из пака разбросаны по краям (без перерисовки), кусок жёлтого "скотча". Иконка ЕГЭ Тренажёра — без рамок и подложек, просто огромным пластом в углу, частично уходит за край пина.</p>
+</div>
