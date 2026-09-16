@@ -1,0 +1,250 @@
+<title>Осенний чек-лист выпускника</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Onest:wght@400;500;700&display=swap">
+<style>
+  :root{
+    --page-bg:#EFE7DA;
+    --page-ink:#3A2A1E;
+    --page-muted:#7A6753;
+    --page-card:#FBF6EC;
+    --page-line:#D9CCB8;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --page-bg:#1E1712;
+      --page-ink:#EFE3D2;
+      --page-muted:#A2917C;
+      --page-card:#2A211A;
+      --page-line:#3E332A;
+    }
+  }
+  :root[data-theme="dark"]{
+    --page-bg:#1E1712;
+    --page-ink:#EFE3D2;
+    --page-muted:#A2917C;
+    --page-card:#2A211A;
+    --page-line:#3E332A;
+  }
+
+  body{
+    background:var(--page-bg);
+    color:var(--page-ink);
+    font-family:'Onest',system-ui,-apple-system,'Segoe UI',sans-serif;
+    padding-block:32px 56px;
+    padding-left:16px; padding-right:16px;
+    display:flex; flex-direction:column; align-items:center; gap:22px;
+  }
+
+  .kicker{
+    font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--page-muted); text-align:center;
+  }
+
+  /* ---------- ПИН 1000×1500 ---------- */
+  .pin{
+    container-type:inline-size;
+    width:min(100%,420px);
+    aspect-ratio:2/3;
+    border-radius:8px;
+    overflow:hidden;
+    position:relative;
+    box-shadow:0 2px 4px rgba(40,22,10,.18), 0 18px 46px rgba(40,22,10,.22);
+    /* шотландка: основа + продольные и поперечные полосы */
+    background-color:#7C3A1D;
+    background-image:
+      repeating-linear-gradient(90deg,
+        rgba(28,12,6,.42) 0 2.2cqw,
+        rgba(0,0,0,0) 2.2cqw 6.4cqw,
+        rgba(232,178,58,.30) 6.4cqw 7.6cqw,
+        rgba(0,0,0,0) 7.6cqw 11.2cqw,
+        rgba(28,12,6,.30) 11.2cqw 16cqw,
+        rgba(0,0,0,0) 16cqw 20cqw),
+      repeating-linear-gradient(0deg,
+        rgba(28,12,6,.42) 0 1.5cqw,
+        rgba(0,0,0,0) 1.5cqw 4.3cqw,
+        rgba(232,178,58,.30) 4.3cqw 5.1cqw,
+        rgba(0,0,0,0) 5.1cqw 7.5cqw,
+        rgba(28,12,6,.30) 7.5cqw 10.7cqw,
+        rgba(0,0,0,0) 10.7cqw 13.4cqw),
+      linear-gradient(160deg,#9A4A22 0%,#7A3418 52%,#5E2711 100%);
+  }
+  .pin::after{ /* мягкая виньетка, чтобы текст держался на любой части клетки */
+    content:""; position:absolute; inset:0; pointer-events:none; z-index:2;
+    background:radial-gradient(120% 70% at 50% 6%, rgba(38,16,6,.55), rgba(38,16,6,0) 60%),
+               linear-gradient(to top, rgba(38,16,6,.55), rgba(38,16,6,0) 34%);
+  }
+
+  /* ---------- стикеры-листья ---------- */
+  .leaf{ position:absolute; z-index:1; filter:drop-shadow(0 .6cqw 1cqw rgba(30,12,4,.35)); pointer-events:none; }
+  .leaf path.fill{ paint-order:stroke fill; stroke:#FBF3E3; stroke-width:9; stroke-linejoin:round; }
+  .leaf path.vein{ fill:none; stroke:rgba(255,255,255,.55); stroke-width:3; stroke-linecap:round; }
+  .leaf--1{ width:30cqw; top:-3cqw; right:-6cqw; transform:rotate(18deg); }
+  .leaf--1 path.fill{ fill:#C2521F; }
+  .leaf--2{ width:13cqw; top:47cqw; right:4cqw; transform:rotate(-14deg); }
+  .leaf--2 path.fill{ fill:#F3C34A; }
+
+  .stage{ position:absolute; inset:0; z-index:3; display:flex; flex-direction:column;
+          padding:4cqw 5.2cqw 3cqw; }
+
+  /* ---------- брендовый лого-блок ---------- */
+  .brand{
+    align-self:flex-start; display:flex; align-items:center; gap:1.8cqw;
+    background:linear-gradient(160deg,#1367FF 0%,#0A4FDB 100%);
+    border-radius:3.4cqw; padding:1.6cqw 3.2cqw 1.6cqw 1.6cqw;
+    box-shadow:0 .8cqw 1.8cqw rgba(6,30,90,.42), inset 0 0 0 .22cqw rgba(255,255,255,.22);
+  }
+  .brand img{ width:8.6cqw; height:8.6cqw; display:block; border-radius:2.2cqw; }
+  .brand-word{ display:flex; flex-direction:column; line-height:1; }
+  .brand-word b{
+    font-family:'Nunito',system-ui,-apple-system,sans-serif; font-weight:900;
+    font-size:3.6cqw; letter-spacing:.01em; color:#FFFFFF;
+  }
+  .brand-word span{
+    margin-top:.4cqw; font-size:2.15cqw; font-weight:700; letter-spacing:.08em;
+    text-transform:uppercase; color:#CFE0FF;
+  }
+
+  .season{
+    margin-top:3.2cqw;
+    font-family:'Nunito',system-ui,-apple-system,sans-serif; font-weight:700;
+    font-size:4.1cqw; letter-spacing:.02em; color:#F3C34A; text-transform:lowercase;
+  }
+  .head{
+    font-family:'Nunito',system-ui,-apple-system,sans-serif; font-weight:900;
+    font-size:8.3cqw; line-height:.94; color:#FDF6E7; text-wrap:balance;
+    margin-top:.6cqw; text-shadow:0 .5cqw 1.6cqw rgba(38,16,6,.42);
+  }
+  .head em{ font-style:normal; color:#F3C34A; }
+  .deck{
+    margin-top:1.9cqw; font-size:3cqw; line-height:1.34; font-weight:500;
+    color:#F2DCBE; max-width:86%;
+  }
+  .deck b{ color:#FDE8B8; font-weight:700; }
+
+  /* карточка-список */
+  .sheet{
+    margin-top:2.8cqw; flex:0 0 auto; background:#FCF7EC; border-radius:2.4cqw;
+    padding:3.4cqw 3.8cqw 3.2cqw; position:relative;
+    box-shadow:0 1.2cqw 3.2cqw rgba(38,16,6,.30);
+  }
+  .sheet::before{ /* язычок-закладка, как на бумажной папке */
+    content:"до Нового года"; position:absolute; top:-2.9cqw; right:3.6cqw;
+    background:#8E1F1F; color:#FBEFDC; font-size:2.2cqw; font-weight:700;
+    letter-spacing:.08em; text-transform:uppercase;
+    padding:1.1cqw 2.4cqw; border-radius:1.2cqw 1.2cqw 0 0;
+  }
+  .sheet-title{
+    display:flex; align-items:baseline; justify-content:space-between; gap:1cqw;
+    padding-bottom:2.2cqw; border-bottom:.3cqw dashed #D9C6A8;
+  }
+  .sheet-title b{
+    font-size:2.4cqw; font-weight:700; letter-spacing:.16em; text-transform:uppercase;
+    color:#A6552C;
+  }
+  .sheet-title i{
+    font-style:normal; font-size:2cqw; font-weight:600; color:#1367FF;
+  }
+  ol{ list-style:none; display:flex; flex-direction:column; gap:2.1cqw; margin-top:2.2cqw; }
+  li{ display:flex; gap:2.7cqw; align-items:flex-start; }
+  .n{
+    flex:0 0 auto; width:6.3cqw; height:6.3cqw; border-radius:50%;
+    background:#C2521F; color:#FFF3DF;
+    font-family:'Nunito',system-ui,-apple-system,sans-serif; font-weight:800; font-size:2.85cqw;
+    display:flex; align-items:center; justify-content:center; margin-top:.2cqw;
+  }
+  li:last-child .n{ background:#8E1F1F; }
+  .t{ font-size:3.15cqw; font-weight:700; line-height:1.25; color:#33210F; }
+  .s{ font-size:2.65cqw; font-weight:400; line-height:1.3; color:#8A7358; margin-top:.5cqw; }
+
+  .cta{
+    margin-top:auto; flex:0 0 auto; padding-top:2.2cqw;
+    display:flex; align-items:center; gap:2.2cqw;
+  }
+  .cta-pill{
+    flex:1; background:#F3C34A; border-radius:3.4cqw;
+    padding:2.1cqw 2.8cqw; display:flex; align-items:center; gap:2.2cqw;
+  }
+  .cta-pill img{ width:7.6cqw; height:7.6cqw; border-radius:1.8cqw; flex:0 0 auto; }
+  .cta-text{ color:#4A2A05; font-size:2.75cqw; font-weight:800; line-height:1.22; }
+  .cta-text span{ display:block; font-weight:500; font-size:2.3cqw; color:#7A521A; margin-top:.3cqw; }
+  .cta-mark{
+    width:10cqw; height:10cqw; border-radius:50%; background:#FDF6E7; color:#8E1F1F;
+    display:flex; align-items:center; justify-content:center; flex:0 0 auto;
+    font-family:'Nunito',system-ui,-apple-system,sans-serif; font-weight:800; font-size:4.6cqw;
+  }
+
+  /* ---------- паспорт пина ---------- */
+  .meta{
+    width:min(100%,420px); background:var(--page-card); border:1px solid var(--page-line);
+    border-radius:10px; padding:18px 18px 16px;
+  }
+  .meta h2{ font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--page-muted); }
+  .meta dl{ margin-top:12px; display:grid; grid-template-columns:auto 1fr; gap:9px 14px; font-size:13.5px; line-height:1.45; }
+  .meta dt{ color:var(--page-muted); white-space:nowrap; }
+  .meta dd{ color:var(--page-ink); }
+  .meta .note{ margin-top:14px; padding-top:12px; border-top:1px solid var(--page-line);
+               font-size:12.5px; line-height:1.5; color:var(--page-muted); }
+  @media (max-width:420px){
+    .meta dl{ grid-template-columns:1fr; gap:2px 0; }
+    .meta dd{ margin-bottom:8px; }
+  }
+</style>
+
+<p class="kicker">пробный пин · вертикаль 2:3 · 1000 × 1500</p>
+
+<div class="pin">
+
+  <svg class="leaf leaf--1" viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg">
+    <path class="fill" d="M100,210 C60,190 40,150 45,110 C20,100 10,70 25,40 C45,55 55,70 60,85 C55,50 65,15 100,5 C135,15 145,50 140,85 C145,70 155,55 175,40 C190,70 180,100 155,110 C160,150 140,190 100,210 Z"/>
+    <path class="vein" d="M100,200 C100,150 100,90 100,25"/>
+    <path class="vein" d="M100,150 C85,130 65,112 48,102"/>
+    <path class="vein" d="M100,130 C115,112 135,96 152,88"/>
+  </svg>
+  <svg class="leaf leaf--2" viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg">
+    <path class="fill" d="M100,210 C60,190 40,150 45,110 C20,100 10,70 25,40 C45,55 55,70 60,85 C55,50 65,15 100,5 C135,15 145,50 140,85 C145,70 155,55 175,40 C190,70 180,100 155,110 C160,150 140,190 100,210 Z"/>
+    <path class="vein" d="M100,200 C100,150 100,90 100,25"/>
+  </svg>
+
+  <div class="stage">
+    <div class="brand">
+      <img src="assets/ege-trenazher-icon.png" alt="ЕГЭ Тренажёр">
+      <div class="brand-word"><b>ЕГЭ Тренажёр</b><span>тренируйся бесплатно</span></div>
+    </div>
+
+    <div class="season">сентябрь — декабрь</div>
+    <h1 class="head">Осенний<br>чек-лист<br><em>выпускника</em></h1>
+    <p class="deck">Пять дел по методике <b>ЕГЭ Тренажёра</b>, которые реально закрыть до зимы.</p>
+
+    <div class="sheet">
+      <div class="sheet-title"><b>Что успеть</b><i>ЕГЭ Тренажёр</i></div>
+      <ol>
+        <li><div class="n">1</div><div><div class="t">Пройти пробник целиком</div><div class="s">с таймером — чтобы знать стартовый балл</div></div></li>
+        <li><div class="n">2</div><div><div class="t">Выписать три слабые темы</div><div class="s">из разбора, а не по ощущениям</div></div></li>
+        <li><div class="n">3</div><div><div class="t">15 минут в день на задания</div><div class="s">одна тема в неделю, по кругу</div></div></li>
+        <li><div class="n">4</div><div><div class="t">Разбирать ошибки сразу</div><div class="s">в тот же день, иначе вернутся в мае</div></div></li>
+        <li><div class="n">5</div><div><div class="t">Написать итоговое сочинение</div><div class="s">оно в первую среду декабря</div></div></li>
+      </ol>
+    </div>
+
+    <div class="cta">
+      <div class="cta-pill">
+        <img src="assets/ege-trenazher-icon.png" alt="">
+        <div class="cta-text">Скачать бесплатно<span>ЕГЭ Тренажёр · ссылка под пином</span></div>
+      </div>
+      <div class="cta-mark">↓</div>
+    </div>
+  </div>
+</div>
+
+<div class="meta">
+  <h2>Паспорт пина</h2>
+  <dl>
+    <dt>Заголовок</dt><dd>Осенний чек-лист выпускника от ЕГЭ Тренажёра: 5 дел до Нового года</dd>
+    <dt>Описание</dt><dd>План на осень для 11 класса по методике ЕГЭ Тренажёра: пробник с таймером, три слабые темы, 15 минут в день, разбор ошибок и итоговое сочинение в декабре. Скачать бесплатно — ЕГЭ Тренажёр.</dd>
+    <dt>Доска</dt><dd>Подготовка к ЕГЭ · ЕГЭ Тренажёр</dd>
+    <dt>Ключевые</dt><dd>егэ тренажёр, подготовка к егэ, егэ 2027, 11 класс, итоговое сочинение, чек-лист</dd>
+    <dt>Alt-текст</dt><dd>Пин ЕГЭ Тренажёра в клетку осенних цветов со стикерами-листьями, логотипом бренда и списком из пяти пунктов подготовки к ЕГЭ</dd>
+  </dl>
+  <p class="note">Что изменилось: шрифт заголовков — Nunito (как в примере «золотая неделя»), добавлен настоящий логотип ЕГЭ Тренажёра сверху и в кнопке, бренд назван три раза (лого-блок, подзаголовок, карточка), добавлены стикеры-листья в осенней палитре. Чтобы выгрузить картинку — скриншот пина при ширине окна 1000 px.</p>
+</div>
