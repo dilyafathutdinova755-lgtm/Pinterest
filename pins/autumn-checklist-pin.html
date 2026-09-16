@@ -75,14 +75,17 @@
                linear-gradient(to top, rgba(38,16,6,.55), rgba(38,16,6,0) 34%);
   }
 
-  /* ---------- стикеры-листья ---------- */
-  .leaf{ position:absolute; z-index:1; filter:drop-shadow(0 .6cqw 1cqw rgba(30,12,4,.35)); pointer-events:none; }
-  .leaf path.fill{ paint-order:stroke fill; stroke:#FBF3E3; stroke-width:9; stroke-linejoin:round; }
-  .leaf path.vein{ fill:none; stroke:rgba(255,255,255,.55); stroke-width:3; stroke-linecap:round; }
-  .leaf--1{ width:30cqw; top:-3cqw; right:-6cqw; transform:rotate(18deg); }
-  .leaf--1 path.fill{ fill:#C2521F; }
-  .leaf--2{ width:13cqw; top:47cqw; right:4cqw; transform:rotate(-14deg); }
-  .leaf--2 path.fill{ fill:#F3C34A; }
+  /* ---------- стикеры (векторные, белая обводка «под вырезной пак») ---------- */
+  .deco{ position:absolute; z-index:1; filter:drop-shadow(0 .6cqw 1cqw rgba(30,12,4,.35)); pointer-events:none; }
+  .deco path.fill{ paint-order:stroke fill; stroke:#FBF3E3; stroke-width:9; stroke-linejoin:round; }
+  .deco path.stem{ paint-order:stroke fill; stroke:#FBF3E3; stroke-width:7; stroke-linejoin:round; }
+  .deco path.vein{ fill:none; stroke:rgba(255,255,255,.55); stroke-width:3; stroke-linecap:round; }
+  .deco--leaf{ width:30cqw; top:-3cqw; right:-6cqw; transform:rotate(18deg); }
+  .deco--leaf path.fill{ fill:#C2521F; }
+  .deco--pumpkin{ width:14cqw; top:46.5cqw; right:4cqw; transform:rotate(-8deg); }
+  .deco--pumpkin path.fill{ fill:#E2793A; }
+  .deco--pumpkin path.stem{ fill:#7A5A32; }
+  .deco--pumpkin path.vein{ stroke:rgba(122,52,10,.4); stroke-width:4; }
 
   .stage{ position:absolute; inset:0; z-index:3; display:flex; flex-direction:column;
           padding:4cqw 5.2cqw 3cqw; }
@@ -195,15 +198,19 @@
 
 <div class="pin">
 
-  <svg class="leaf leaf--1" viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg">
+  <svg class="deco deco--leaf" viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg">
     <path class="fill" d="M100,210 C60,190 40,150 45,110 C20,100 10,70 25,40 C45,55 55,70 60,85 C55,50 65,15 100,5 C135,15 145,50 140,85 C145,70 155,55 175,40 C190,70 180,100 155,110 C160,150 140,190 100,210 Z"/>
     <path class="vein" d="M100,200 C100,150 100,90 100,25"/>
     <path class="vein" d="M100,150 C85,130 65,112 48,102"/>
     <path class="vein" d="M100,130 C115,112 135,96 152,88"/>
   </svg>
-  <svg class="leaf leaf--2" viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg">
-    <path class="fill" d="M100,210 C60,190 40,150 45,110 C20,100 10,70 25,40 C45,55 55,70 60,85 C55,50 65,15 100,5 C135,15 145,50 140,85 C145,70 155,55 175,40 C190,70 180,100 155,110 C160,150 140,190 100,210 Z"/>
-    <path class="vein" d="M100,200 C100,150 100,90 100,25"/>
+  <svg class="deco deco--pumpkin" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <path class="fill" d="M100,180 C40,180 20,140 20,105 C20,65 55,30 100,30 C145,30 180,65 180,105 C180,140 160,180 100,180 Z"/>
+    <path class="vein" d="M67,40 C56,70 56,142 70,176"/>
+    <path class="vein" d="M86,32 C79,65 79,146 89,179"/>
+    <path class="vein" d="M114,32 C121,65 121,146 111,179"/>
+    <path class="vein" d="M133,40 C144,70 144,142 130,176"/>
+    <path class="stem" d="M92,34 C89,20 93,9 104,4 C113,10 111,24 103,33 C99,36 95,36 92,34 Z"/>
   </svg>
 
   <div class="stage">
@@ -244,7 +251,7 @@
     <dt>Описание</dt><dd>План на осень для 11 класса по методике ЕГЭ Тренажёра: пробник с таймером, три слабые темы, 15 минут в день, разбор ошибок и итоговое сочинение в декабре. Скачать бесплатно — ЕГЭ Тренажёр.</dd>
     <dt>Доска</dt><dd>Подготовка к ЕГЭ · ЕГЭ Тренажёр</dd>
     <dt>Ключевые</dt><dd>егэ тренажёр, подготовка к егэ, егэ 2027, 11 класс, итоговое сочинение, чек-лист</dd>
-    <dt>Alt-текст</dt><dd>Пин ЕГЭ Тренажёра в клетку осенних цветов со стикерами-листьями, логотипом бренда и списком из пяти пунктов подготовки к ЕГЭ</dd>
+    <dt>Alt-текст</dt><dd>Пин ЕГЭ Тренажёра в клетку осенних цветов со стикерами листа и тыквы, логотипом бренда и списком из пяти пунктов подготовки к ЕГЭ</dd>
   </dl>
-  <p class="note">Что изменилось: шрифт заголовков — Nunito (как в примере «золотая неделя»), добавлен настоящий логотип ЕГЭ Тренажёра сверху и в кнопке, бренд назван три раза (лого-блок, подзаголовок, карточка), добавлены стикеры-листья в осенней палитре. Чтобы выгрузить картинку — скриншот пина при ширине окна 1000 px.</p>
+  <p class="note">Что изменилось: шрифт заголовков — Nunito (как в примере «золотая неделя»), добавлен настоящий логотип ЕГЭ Тренажёра сверху и в кнопке, бренд назван три раза (лого-блок, подзаголовок, карточка), стикеры — лист и тыква с белой обводкой «под вырезной пак». Присланный лист стикеров — это флэт-превью без альфа-канала, отдельные элементы из него не вырезаются чисто; если пришлёте исходные PNG с прозрачностью, вставлю их вместо векторных. Чтобы выгрузить картинку — скриншот пина при ширине окна 1000 px.</p>
 </div>
