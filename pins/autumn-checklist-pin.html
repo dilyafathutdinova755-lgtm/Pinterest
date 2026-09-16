@@ -83,26 +83,29 @@
   .stage{ position:absolute; inset:0; z-index:3; display:flex; flex-direction:column;
           padding:4cqw 5.2cqw 3cqw; }
 
-  /* ---------- брендовый лого-блок ---------- */
+  /* ---------- брендовый лого-блок: крупная иконка + подпись ---------- */
   .brand{
-    align-self:flex-start; display:flex; align-items:center; gap:1.8cqw;
-    background:linear-gradient(160deg,#1367FF 0%,#0A4FDB 100%);
-    border-radius:3.4cqw; padding:1.6cqw 3.2cqw 1.6cqw 1.6cqw;
-    box-shadow:0 .8cqw 1.8cqw rgba(6,30,90,.42), inset 0 0 0 .22cqw rgba(255,255,255,.22);
+    align-self:flex-start; display:flex; align-items:center; gap:2.6cqw;
   }
-  .brand img{ width:8.6cqw; height:8.6cqw; display:block; border-radius:2.2cqw; }
-  .brand-word{ display:flex; flex-direction:column; line-height:1; }
+  .brand img{
+    width:19cqw; height:19cqw; display:block; border-radius:4.4cqw;
+    box-shadow:0 1cqw 2.6cqw rgba(8,18,46,.5), 0 0 0 .45cqw rgba(255,255,255,.85);
+  }
+  .brand-word{ display:flex; flex-direction:column; line-height:1.05; }
   .brand-word b{
     font-family:'Nunito',system-ui,-apple-system,sans-serif; font-weight:900;
-    font-size:3.6cqw; letter-spacing:.01em; color:#FFFFFF;
+    font-size:4.6cqw; letter-spacing:.005em; color:#FDF6E7;
+    text-shadow:0 .4cqw 1.2cqw rgba(20,8,2,.5);
   }
   .brand-word span{
-    margin-top:.4cqw; font-size:2.15cqw; font-weight:700; letter-spacing:.08em;
-    text-transform:uppercase; color:#CFE0FF;
+    margin-top:.9cqw; align-self:flex-start;
+    font-size:2.15cqw; font-weight:700; letter-spacing:.08em;
+    text-transform:uppercase; color:#1E2A4A; background:#F3C34A;
+    padding:.6cqw 1.8cqw; border-radius:99px;
   }
 
   .season{
-    margin-top:3.2cqw;
+    margin-top:2.6cqw;
     font-family:'Nunito',system-ui,-apple-system,sans-serif; font-weight:700;
     font-size:4.1cqw; letter-spacing:.02em; color:#F3C34A; text-transform:lowercase;
   }
