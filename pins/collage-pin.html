@@ -39,18 +39,18 @@
       #F2E7D3;
   }
 
-  .stage{ position:relative; z-index:3; height:100%; display:flex; flex-direction:column;
+  .stage{ position:absolute; inset:0; z-index:3; display:flex; flex-direction:column;
           padding:6cqw 6.5cqw 4cqw; }
 
-  .eyebrow{ font-family:'Caveat',cursive; font-weight:700; font-size:5.6cqw; color:#B5502A;
+  .eyebrow{ margin:0; font-family:'Caveat',cursive; font-weight:700; font-size:5.6cqw; color:#B5502A;
     transform:rotate(-3deg); align-self:flex-start; }
   .head{
     font-family:'Oswald',system-ui,-apple-system,sans-serif; font-weight:800;
     font-size:13.6cqw; line-height:.9; letter-spacing:-.005em; text-transform:uppercase;
-    color:#2A1E14; margin-top:1.2cqw;
+    color:#2A1E14; margin:1.2cqw 0 0;
   }
   .head .accent{ color:#C24A1E; }
-  .sub{ margin-top:3.4cqw; max-width:70%; font-size:3.5cqw; line-height:1.42; color:#5A4834; }
+  .sub{ margin:3.4cqw 0 0; max-width:80%; font-size:3.5cqw; line-height:1.42; color:#5A4834; }
   .sub b{ color:#2A1E14; font-weight:700; }
 
   .spacer{ flex:1 1 auto; min-height:4cqw; }
@@ -70,14 +70,17 @@
     filter:drop-shadow(0 1cqw 2cqw rgba(20,10,4,.28));
   }
 
-  /* ---------- реальные стикеры из пака ---------- */
+  /* ---------- авторские стикеры (свой рисунок, не перерисовка чужих) ---------- */
   .sticker{ position:absolute; z-index:1; pointer-events:none;
-    filter:drop-shadow(0 .5cqw 1cqw rgba(30,15,5,.28)); }
-  .s-books{ width:16cqw; top:19cqw; left:-2cqw; transform:rotate(-10deg); }
-  .s-bow{ width:12cqw; top:3cqw; right:5cqw; transform:rotate(9deg); }
-  .s-roll{ width:12cqw; top:48cqw; right:-1.5cqw; transform:rotate(-8deg); }
-  .s-candle{ width:11cqw; top:34cqw; right:1cqw; transform:rotate(6deg); }
-  .s-leaf{ width:11cqw; top:64cqw; right:2cqw; transform:rotate(16deg); }
+    filter:drop-shadow(0 .45cqw .9cqw rgba(30,15,5,.30)); overflow:visible; }
+  .s-bow    { width:13cqw; top:2cqw;   right:4cqw;   transform:rotate(8deg); }
+  .s-leaf   { width:12.5cqw; top:17cqw;  right:1.5cqw; transform:rotate(-12deg); }
+  .s-coffee { width:15cqw; top:33cqw;  right:-1cqw;  transform:rotate(6deg); }
+  .s-pumpkin{ width:13cqw; top:52cqw;  right:2cqw;   transform:rotate(-6deg); }
+  .s-candle { width:11cqw; top:68cqw;  right:5cqw;   transform:rotate(9deg); }
+  .s-acorn  { width:8cqw;  top:1.5cqw; left:-1cqw;   transform:rotate(-14deg); }
+  .s-roll   { width:13cqw; top:68cqw;  left:-2.5cqw; transform:rotate(-9deg); }
+  .s-books  { width:19cqw; top:84cqw;  left:-2.5cqw; transform:rotate(-6deg); }
 
   .tape{
     position:absolute; z-index:2; width:15cqw; height:4.6cqw;
@@ -98,15 +101,224 @@
   @media (max-width:420px){ .meta dl{ grid-template-columns:1fr; gap:2px 0; } .meta dd{ margin-bottom:8px; } }
 </style>
 
-<p class="kicker">вариант 3 · коллаж · вертикаль 2:3 · 1000 × 1500</p>
+<p class="kicker">вариант 3 · коллаж, свои стикеры · вертикаль 2:3 · 1000 × 1500</p>
 
 <div class="pin">
   <div class="tape tape--1"></div>
-  <img class="sticker s-books" src="assets/sticker-books.png" alt="">
-  <img class="sticker s-bow" src="assets/sticker-bow.png" alt="">
-  <img class="sticker s-roll" src="assets/sticker-cinnamon-roll.png" alt="">
-  <img class="sticker s-candle" src="assets/sticker-candle.png" alt="">
-  <img class="sticker s-leaf" src="assets/sticker-leaf.png" alt="">
+
+  <!-- бант -->
+  <svg class="sticker s-bow" viewBox="-6 -6 132 96" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="bowG" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#B03A2E"/><stop offset="100%" stop-color="#7A1E18"/>
+      </linearGradient>
+      <clipPath id="bowClip">
+        <path d="M60,42 C54,22 34,4 12,6 C-2,7 -6,20 2,30 C10,40 30,42 44,38
+                 C28,44 10,54 8,68 C6,80 18,86 28,78 C40,69 52,54 60,42 Z
+                 M60,42 C66,22 86,4 108,6 C122,7 126,20 118,30 C110,40 90,42 76,38
+                 C92,44 110,54 112,68 C114,80 102,86 92,78 C80,69 68,54 60,42 Z"/>
+      </clipPath>
+    </defs>
+    <path fill="#FFFFFF" d="M60,36 C52,10 26,-6 4,-2 C-10,1 -14,18 -4,30 C4,40 24,44 40,40
+      C22,46 2,58 0,74 C-2,88 12,96 24,86 C38,75 52,58 60,42
+      C68,58 82,75 96,86 C108,96 122,88 120,74 C118,58 98,46 80,40
+      C96,44 116,40 124,30 C134,18 130,1 116,-2 C94,-6 68,10 60,36 Z"/>
+    <path fill="url(#bowG)" d="M60,42 C54,22 34,4 12,6 C-2,7 -6,20 2,30 C10,40 30,42 44,38
+      C28,44 10,54 8,68 C6,80 18,86 28,78 C40,69 52,54 60,42 Z
+      M60,42 C66,22 86,4 108,6 C122,7 126,20 118,30 C110,40 90,42 76,38
+      C92,44 110,54 112,68 C114,80 102,86 92,78 C80,69 68,54 60,42 Z"/>
+    <g clip-path="url(#bowClip)" opacity="0.5">
+      <rect x="-10" y="4"  width="140" height="6" fill="#E3B24A"/>
+      <rect x="-10" y="26" width="140" height="6" fill="#3A2213"/>
+      <rect x="-10" y="48" width="140" height="6" fill="#E3B24A"/>
+      <rect x="-10" y="70" width="140" height="6" fill="#3A2213"/>
+      <rect x="14" y="-10" width="6" height="110" fill="#3A2213"/>
+      <rect x="46" y="-10" width="6" height="110" fill="#E3B24A"/>
+      <rect x="78" y="-10" width="6" height="110" fill="#3A2213"/>
+      <rect x="106" y="-10" width="6" height="110" fill="#E3B24A"/>
+    </g>
+    <rect x="44" y="26" width="32" height="24" rx="7" fill="#5A150F" transform="rotate(4 60 38)"/>
+    <rect x="47" y="28" width="26" height="18" rx="5" fill="#B0392C" transform="rotate(4 60 37)"/>
+    <rect x="50" y="29" width="20" height="4" rx="2" fill="#D96B54" opacity="0.7" transform="rotate(4 60 31)"/>
+  </svg>
+
+  <!-- лист -->
+  <svg class="sticker s-leaf" viewBox="-8 -8 116 126" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="leafG" x1="0" y1="0" x2="0.3" y2="1">
+        <stop offset="0%" stop-color="#F4C24A"/>
+        <stop offset="48%" stop-color="#E17A2E"/>
+        <stop offset="100%" stop-color="#A32A18"/>
+      </linearGradient>
+    </defs>
+    <path fill="#FFFFFF" d="M50,110 C38,96 30,80 32,63 C15,59 3,45 5,28
+      C18,30 29,36 36,43 C31,20 39,1 50,-6 C61,1 69,20 64,43
+      C71,36 82,30 95,28 C97,45 85,59 68,63 C70,80 62,96 50,110 Z"/>
+    <path fill="url(#leafG)" d="M50,104 C40,92 33,78 35,63 C21,59 11,47 13,33
+      C24,35 33,40 38,46 C34,25 41,8 50,2 C59,8 66,25 62,46
+      C67,40 76,35 87,33 C89,47 79,59 65,63 C67,78 60,92 50,104 Z"/>
+    <g fill="none" stroke="#7A1E10" stroke-width="1.6" stroke-linecap="round" opacity="0.55">
+      <path d="M50,96 C50,80 50,50 50,8"/>
+      <path d="M50,74 C40,62 27,52 17,48"/>
+      <path d="M50,74 C60,62 73,52 83,48"/>
+      <path d="M50,50 C43,40 34,32 27,27"/>
+      <path d="M50,50 C57,40 66,32 73,27"/>
+    </g>
+    <ellipse cx="40" cy="18" rx="7" ry="11" fill="#FFF4D6" opacity="0.35" transform="rotate(-18 40 18)"/>
+  </svg>
+
+  <!-- кофе с сердечком -->
+  <svg class="sticker s-coffee" viewBox="-6 -14 132 128" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="cupG" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#FDF8EC"/><stop offset="100%" stop-color="#E7D8B8"/>
+      </linearGradient>
+      <radialGradient id="coffeeG" cx="0.4" cy="0.35" r="0.75">
+        <stop offset="0%" stop-color="#8A5A34"/><stop offset="100%" stop-color="#4A2C16"/>
+      </radialGradient>
+    </defs>
+    <path fill="#FFFFFF" d="M4,66 C4,60 12,56 22,56 L98,56 C108,56 116,60 116,66
+      C116,72 108,76 98,76 L22,76 C12,76 4,72 4,66 Z
+      M14,4 L94,4 C98,4 100,8 99,14 L92,64 L16,64 L9,14 C8,8 10,4 14,4 Z
+      M96,18 C112,18 122,28 122,40 C122,52 112,60 96,58 Z"/>
+    <ellipse cx="54" cy="66" rx="46" ry="9" fill="#D8CBAC"/>
+    <path fill="url(#cupG)" d="M18,8 L90,8 C93,8 95,11 94,16 L88,60 L20,60 L14,16 C13,11 15,8 18,8 Z"/>
+    <path fill="none" stroke="url(#cupG)" stroke-width="7" d="M92,22 C104,22 112,29 112,38 C112,47 104,53 92,51"/>
+    <ellipse cx="54" cy="20" rx="34" ry="10" fill="url(#coffeeG)"/>
+    <path fill="#FBF3E3" opacity="0.92" d="M46,16 C46,12 50,10 54,13 C58,10 62,12 62,16 C62,20 54,26 54,26 C54,26 46,20 46,16 Z"/>
+    <g fill="none" stroke="#D8C6A2" stroke-width="2.4" stroke-linecap="round" opacity="0.65">
+      <path d="M40,-4 C36,-10 44,-14 40,-20"/>
+      <path d="M54,-6 C50,-12 58,-16 54,-22"/>
+      <path d="M68,-4 C64,-10 72,-14 68,-20"/>
+    </g>
+  </svg>
+
+  <!-- тыква -->
+  <svg class="sticker s-pumpkin" viewBox="-8 -12 116 118" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="pumpBaseG" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#FF9E4D"/><stop offset="100%" stop-color="#C0500F"/>
+      </linearGradient>
+      <linearGradient id="pumpRidgeG" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%"  stop-color="#000000" stop-opacity="0.30"/>
+        <stop offset="8%"  stop-color="#000000" stop-opacity="0.05"/>
+        <stop offset="18%" stop-color="#FFFFFF" stop-opacity="0.35"/>
+        <stop offset="28%" stop-color="#000000" stop-opacity="0.05"/>
+        <stop offset="38%" stop-color="#000000" stop-opacity="0.28"/>
+        <stop offset="50%" stop-color="#FFFFFF" stop-opacity="0.45"/>
+        <stop offset="62%" stop-color="#000000" stop-opacity="0.28"/>
+        <stop offset="72%" stop-color="#000000" stop-opacity="0.05"/>
+        <stop offset="82%" stop-color="#FFFFFF" stop-opacity="0.30"/>
+        <stop offset="92%" stop-color="#000000" stop-opacity="0.08"/>
+        <stop offset="100%" stop-color="#000000" stop-opacity="0.32"/>
+      </linearGradient>
+      <linearGradient id="stemG" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#8C7A3E"/><stop offset="100%" stop-color="#5C4B22"/>
+      </linearGradient>
+    </defs>
+    <path fill="#FFFFFF" d="M50,98 C15,98 -3,70 -3,44 C-3,17 20,-3 50,-3 C80,-3 103,17 103,44 C103,70 85,98 50,98 Z"/>
+    <path fill="url(#pumpBaseG)" d="M50,92 C20,92 3,67 3,44 C3,20 23,3 50,3 C77,3 97,20 97,44 C97,67 80,92 50,92 Z"/>
+    <path fill="url(#pumpRidgeG)" d="M50,92 C20,92 3,67 3,44 C3,20 23,3 50,3 C77,3 97,20 97,44 C97,67 80,92 50,92 Z"/>
+    <path fill="url(#stemG)" d="M46,4 C44,-6 50,-14 58,-13 C62,-12 61,-6 56,-3 C60,-3 63,1 60,5 C56,9 49,8 46,4 Z"/>
+    <ellipse cx="34" cy="24" rx="8" ry="12" fill="#FFE7B8" opacity="0.4" transform="rotate(-16 34 24)"/>
+  </svg>
+
+  <!-- свеча в банке -->
+  <svg class="sticker s-candle" viewBox="-14 -26 108 148" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="waxG" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#FDF3D2"/><stop offset="100%" stop-color="#E9C97E"/>
+      </linearGradient>
+      <radialGradient id="glowG" cx="0.5" cy="0.4" r="0.7">
+        <stop offset="0%" stop-color="#FFE9A8" stop-opacity="0.9"/>
+        <stop offset="100%" stop-color="#FFE9A8" stop-opacity="0"/>
+      </radialGradient>
+      <linearGradient id="flameG" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#FFFBEA"/><stop offset="45%" stop-color="#FFC24D"/><stop offset="100%" stop-color="#E2661C"/>
+      </linearGradient>
+    </defs>
+    <circle cx="40" cy="72" r="58" fill="#FFFFFF"/>
+    <ellipse cx="40" cy="-6" rx="26" ry="16" fill="url(#glowG)"/>
+    <path fill="#B5CFC6" opacity="0.55" d="M8,42 C8,28 22,18 40,18 C58,18 72,28 72,42 L67,108 C67,118 55,124 40,124 C25,124 13,118 13,108 Z"/>
+    <path fill="url(#waxG)" d="M14,52 L66,52 L62,106 C62,113 52,118 40,118 C28,118 18,113 18,106 Z"/>
+    <path fill="none" stroke="#8FA89D" stroke-width="2.6" d="M11,42 C11,29 24,20 40,20 C56,20 69,29 69,42 L64,108 C64,116 53,122 40,122 C27,122 16,116 16,108 Z"/>
+    <path fill="#FFFFFF" opacity="0.45" d="M20,26 C17,50 17,86 22,112" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" fill="none"/>
+    <rect x="38.4" y="0" width="3.2" height="20" rx="1.4" fill="#2A1C10"/>
+    <path fill="url(#flameG)" d="M40,-22 C48,-12 53,-3 48,9 C45,16 35,16 32,9 C27,-3 32,-12 40,-22 Z"/>
+    <path fill="#FFFBEA" opacity="0.85" d="M40,-10 C43,-5 44,0 41,5 C40,7 38,7 37,5 C35,0 37,-5 40,-10 Z"/>
+  </svg>
+
+  <!-- жёлудь -->
+  <svg class="sticker s-acorn" viewBox="-8 -6 96 116" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="acornCapG" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#8C6B3C"/><stop offset="100%" stop-color="#5C4322"/>
+      </linearGradient>
+      <linearGradient id="acornBodyG" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#E3B26C"/><stop offset="100%" stop-color="#A9743A"/>
+      </linearGradient>
+    </defs>
+    <path fill="#FFFFFF" d="M40,102 C18,102 4,80 4,58 C4,44 12,34 22,30 C10,26 2,16 6,4 C10,-6 30,-6 40,2
+      C50,-6 70,-6 74,4 C78,16 70,26 58,30 C68,34 76,44 76,58 C76,80 62,102 40,102 Z"/>
+    <path fill="url(#acornBodyG)" d="M40,96 C22,96 10,78 10,58 C10,42 23,32 40,32 C57,32 70,42 70,58 C70,78 58,96 40,96 Z"/>
+    <path fill="url(#acornCapG)" d="M8,26 C6,14 16,2 40,2 C64,2 74,14 72,26 C70,34 58,36 40,36 C22,36 10,34 8,26 Z"/>
+    <g stroke="#3E2C14" stroke-width="1.6" stroke-linecap="round" opacity="0.5">
+      <path d="M12,16 L20,20"/><path d="M20,10 L28,15"/><path d="M30,7 L37,11"/>
+      <path d="M50,7 L43,11"/><path d="M60,10 L52,15"/><path d="M68,16 L60,20"/>
+    </g>
+    <rect x="36" y="-6" width="8" height="12" rx="3" fill="#5C4322"/>
+    <ellipse cx="26" cy="52" rx="6" ry="9" fill="#FBE3B8" opacity="0.4"/>
+  </svg>
+
+  <!-- булочка с корицей -->
+  <svg class="sticker s-roll" viewBox="-6 -6 112 112" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient id="rollG" cx="0.5" cy="0.5" r="0.52">
+        <stop offset="0%"  stop-color="#D9A15C"/>
+        <stop offset="16%" stop-color="#8B4A24"/>
+        <stop offset="32%" stop-color="#D9A15C"/>
+        <stop offset="48%" stop-color="#8B4A24"/>
+        <stop offset="64%" stop-color="#E7BE86"/>
+        <stop offset="80%" stop-color="#96552C"/>
+        <stop offset="100%" stop-color="#C98A4A"/>
+      </radialGradient>
+    </defs>
+    <circle cx="50" cy="50" r="54" fill="#FFFFFF"/>
+    <circle cx="50" cy="50" r="47" fill="url(#rollG)"/>
+    <path fill="none" stroke="#FBF3E3" stroke-width="5.5" stroke-linecap="round"
+      d="M14,40 C24,30 40,30 46,40 C52,50 66,52 74,44"/>
+    <path fill="none" stroke="#FBF3E3" stroke-width="4" stroke-linecap="round" opacity="0.85"
+      d="M22,58 C32,50 46,52 52,60 C58,68 70,68 78,60"/>
+  </svg>
+
+  <!-- стопка книг -->
+  <svg class="sticker s-books" viewBox="-6 -14 156 118" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="bookGreen" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#4C6E4F"/><stop offset="100%" stop-color="#33502F"/>
+      </linearGradient>
+      <linearGradient id="bookWine" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#8E3A44"/><stop offset="100%" stop-color="#6B222C"/>
+      </linearGradient>
+      <linearGradient id="bookNavy" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#3B4A66"/><stop offset="100%" stop-color="#24304A"/>
+      </linearGradient>
+    </defs>
+    <path fill="#FFFFFF" d="M-2,88 L146,88 L150,70 L144,54 L150,40 L142,24 L148,10 L136,-8 L2,-6 L10,10 L2,26 L10,42 L0,58 L8,72 Z"/>
+    <g>
+      <rect x="6" y="58" width="132" height="22" rx="3" fill="url(#bookWine)" transform="rotate(-2 72 69)"/>
+      <rect x="10" y="60" width="126" height="4" fill="#B5656E" opacity="0.55" transform="rotate(-2 73 62)"/>
+      <rect x="10" y="30" width="128" height="26" rx="3" fill="url(#bookGreen)" transform="rotate(1.4 74 43)"/>
+      <rect x="14" y="33" width="122" height="4.5" fill="#8FAF8C" opacity="0.5" transform="rotate(1.4 75 35)"/>
+      <rect x="14" y="0" width="118" height="24" rx="3" fill="url(#bookNavy)" transform="rotate(-1.6 73 12)"/>
+      <rect x="18" y="3" width="112" height="4" fill="#8E9EC0" opacity="0.55" transform="rotate(-1.6 74 5)"/>
+    </g>
+    <g stroke="#C9A063" stroke-width="2.4" fill="none" stroke-linecap="round">
+      <path d="M40,-6 C36,30 36,58 40,88"/>
+      <path d="M104,-6 C108,30 108,58 104,88"/>
+    </g>
+    <path fill="#C9A063" d="M64,32 C60,26 68,20 72,26 C76,20 84,26 80,32 C84,34 82,42 74,40 C78,44 70,50 66,44 C62,50 54,44 58,40 C50,42 48,34 52,32 C48,26 56,20 60,26 C56,20 64,20 64,32"/>
+  </svg>
 
   <img class="icon-slab" src="assets/ege-trenazher-icon.png" alt="ЕГЭ Тренажёр">
 
@@ -133,7 +345,7 @@
     <dt>Описание</dt><dd>ЕГЭ Тренажёр: пробники, разбор ошибок и трекер прогресса в одном приложении. Скачать бесплатно.</dd>
     <dt>Доска</dt><dd>ЕГЭ Тренажёр · Подготовка к ЕГЭ</dd>
     <dt>Ключевые</dt><dd>егэ тренажёр, подготовка к егэ, егэ 2027, 11 класс, приложение для егэ</dd>
-    <dt>Alt-текст</dt><dd>Коллажный пин ЕГЭ Тренажёра: заголовок «хватит бояться ЕГЭ», настоящие осенние стикеры и огромная иконка приложения, выходящая за край</dd>
+    <dt>Alt-текст</dt><dd>Коллажный пин ЕГЭ Тренажёра: заголовок «хватит бояться ЕГЭ», восемь авторских осенних стикеров (бант, лист, кофе, тыква, свеча, жёлудь, булочка, книги) и огромная иконка приложения, выходящая за край</dd>
   </dl>
-  <p class="note">Третий вариант — коллаж/скрапбук, без клетки. Плоский кремовый фон с лёгкой зернистой текстурой, реальные стикеры из пака разбросаны по краям (без перерисовки), кусок жёлтого "скотча". Иконка ЕГЭ Тренажёра — без рамок и подложек, просто огромным пластом в углу, частично уходит за край пина.</p>
+  <p class="note">Стикеры — авторский рисунок по мотивам вашего пака (не копия и не перерисовка исходников): градиентная заливка вместо плоского цвета, тонкая белая обводка вместо толстой, у каждого — своя деталь (сердечко на кофе, рёбра на тыкве, текстура на желуде). Восемь штук вместо двух, размещены свободно по краям. Иконка ЕГЭ Тренажёра — без рамок и подложек, огромным пластом в углу.</p>
 </div>
