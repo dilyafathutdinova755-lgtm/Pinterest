@@ -1,0 +1,83 @@
+<title>Пробник как выходной</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700;800&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap">
+<style>
+  :root{ --page-bg:#EFE7DA; --page-ink:#3A2A1E; --page-muted:#7A6753; --page-card:#FBF6EC; --page-line:#D9CCB8; }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){ --page-bg:#1E1712; --page-ink:#EFE3D2; --page-muted:#A2917C; --page-card:#2A211A; --page-line:#3E332A; }
+  }
+  :root[data-theme="dark"]{ --page-bg:#1E1712; --page-ink:#EFE3D2; --page-muted:#A2917C; --page-card:#2A211A; --page-line:#3E332A; }
+  body{ background:var(--page-bg); color:var(--page-ink); font-family:'PT Serif',Georgia,serif;
+    padding-block:32px 56px; padding-left:16px; padding-right:16px;
+    display:flex; flex-direction:column; align-items:center; gap:22px; }
+  .kicker{ font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--page-muted); text-align:center; }
+
+  .pin{
+    container-type:inline-size; width:min(100%,420px); aspect-ratio:2/3;
+    border-radius:8px; overflow:hidden; position:relative;
+    box-shadow:0 2px 4px rgba(40,22,10,.18), 0 18px 46px rgba(40,22,10,.22);
+    background:#6B2230;
+  }
+  .pin::after{
+    content:""; position:absolute; inset:0; z-index:1; pointer-events:none;
+    background:radial-gradient(120% 55% at 100% 0%, rgba(255,255,255,.12), transparent 60%),
+               radial-gradient(90% 55% at 0% 100%, rgba(0,0,0,.16), transparent 60%);
+  }
+
+  .stage{ position:absolute; inset:0; z-index:2; display:flex; flex-direction:column;
+          padding:8cqw 7cqw 6cqw; text-align:center; align-items:center; }
+
+  .eyebrow{ font-family:'Oswald',system-ui,-apple-system,sans-serif; font-weight:600;
+    font-size:3.6cqw; letter-spacing:.14em; text-transform:uppercase; color:#F0B7A8; }
+  .head{ margin-top:1.6cqw; font-family:'Oswald',system-ui,-apple-system,sans-serif; font-weight:800;
+    font-size:9.4cqw; line-height:.98; letter-spacing:-.005em; color:#FBF0E6; text-wrap:balance; }
+
+  .hero{ margin-top:4cqw; width:38cqw; filter:drop-shadow(0 1.2cqw 2.2cqw rgba(0,0,0,.35));
+    transform:rotate(4deg); }
+
+  .sub{ margin-top:4cqw; max-width:82%; font-size:3.6cqw; line-height:1.45; font-style:italic; color:#E3C3BC; }
+  .sub b{ font-style:normal; font-weight:700; color:#FBF0E6; }
+
+  .spacer{ flex:1 1 auto; min-height:2cqw; }
+
+  .bottom-text{ font-family:'Oswald',system-ui,-apple-system,sans-serif; font-weight:600;
+    font-size:3cqw; letter-spacing:.08em; text-transform:uppercase; color:#E3C3BC; }
+  .bottom-text b{ color:#FBF0E6; font-weight:800; }
+
+  .icon-slab{ position:absolute; z-index:3; width:26cqw; right:-4cqw; bottom:-3cqw; transform:rotate(6deg);
+    filter:drop-shadow(0 .8cqw 1.6cqw rgba(0,0,0,.4)); }
+
+  .meta{ width:min(100%,420px); background:var(--page-card); border:1px solid var(--page-line); border-radius:10px; padding:18px 18px 16px; }
+  .meta h2{ font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--page-muted); font-family:'PT Serif',Georgia,serif; }
+  .meta dl{ margin-top:12px; display:grid; grid-template-columns:auto 1fr; gap:9px 14px; font-size:13.5px; line-height:1.45; }
+  .meta dt{ color:var(--page-muted); white-space:nowrap; }
+  .meta dd{ color:var(--page-ink); }
+  .meta .note{ margin-top:14px; padding-top:12px; border-top:1px solid var(--page-line); font-size:12.5px; line-height:1.5; color:var(--page-muted); }
+  @media (max-width:420px){ .meta dl{ grid-template-columns:1fr; gap:2px 0; } .meta dd{ margin-bottom:8px; } }
+</style>
+
+<p class="kicker">вариант 5 · какао · вертикаль 2:3 · 1000 × 1500</p>
+
+<div class="pin">
+  <div class="stage">
+    <div class="eyebrow">заслуженная награда</div>
+    <h1 class="head">ПРОБНИК —<br>КАК ВЫХОДНОЙ</h1>
+    <img class="hero" src="assets/real-cocoa.png" alt="">
+    <p class="sub">Прошёл пробник — <b>заслужил какао и вечер без учебников</b>.</p>
+    <div class="spacer"></div>
+    <div class="bottom-text"><b>ЕГЭ Тренажёр</b> · бесплатно</div>
+  </div>
+  <img class="icon-slab" src="assets/ege-trenazher-icon.png" alt="ЕГЭ Тренажёр">
+</div>
+
+<div class="meta">
+  <h2>Паспорт пина</h2>
+  <dl>
+    <dt>Заголовок</dt><dd>ЕГЭ Тренажёр — пробник как выходной</dd>
+    <dt>Описание</dt><dd>Прошёл пробник — заслужил какао и вечер без учебников. Пробники с таймером бесплатно в ЕГЭ Тренажёре.</dd>
+    <dt>Доска</dt><dd>ЕГЭ Тренажёр · Подготовка к ЕГЭ</dd>
+    <dt>Ключевые</dt><dd>егэ тренажёр, подготовка к егэ, егэ 2027, 11 класс</dd>
+  </dl>
+  <p class="note">Вариант 5, серия «герой-стикер»: один крупный настоящий стикер по центру, сплошной цветной фон, огромная иконка без рамок в углу. Винный фон, какао с маршмэллоу — награда после пробника.</p>
+</div>
