@@ -29,24 +29,30 @@
           padding:8cqw 7cqw 6cqw; text-align:center; align-items:center; }
 
   .eyebrow{ font-family:'Oswald',system-ui,-apple-system,sans-serif; font-weight:600;
-    font-size:3.6cqw; letter-spacing:.14em; text-transform:uppercase; color:#E2793A; }
-  .head{ margin-top:1.6cqw; font-family:'Oswald',system-ui,-apple-system,sans-serif; font-weight:800;
-    font-size:9.4cqw; line-height:.98; letter-spacing:-.005em; color:#FBF3E0; text-wrap:balance; }
+    font-size:3.2cqw; letter-spacing:.14em; text-transform:uppercase; color:#E2793A; }
+  .ege-word{ margin-top:.6cqw; font-family:'Oswald',system-ui,-apple-system,sans-serif; font-weight:800;
+    font-size:16.5cqw; line-height:.82; letter-spacing:.01em; color:#E2793A;
+    text-shadow:0 .3cqw 0 rgba(0,0,0,.12); }
+  .head{ margin-top:1.8cqw; font-family:'Oswald',system-ui,-apple-system,sans-serif; font-weight:800;
+    font-size:7cqw; line-height:1.05; letter-spacing:-.005em; color:#FBF3E0; text-wrap:balance; }
 
-  .hero{ margin-top:4cqw; width:34cqw; filter:drop-shadow(0 1.2cqw 2.2cqw rgba(0,0,0,.35));
+  .hero{ margin-top:3.4cqw; width:34cqw; filter:drop-shadow(0 1.2cqw 2.2cqw rgba(0,0,0,.35));
     transform:rotate(-3deg); }
 
-  .sub{ margin-top:4cqw; max-width:82%; font-size:3.6cqw; line-height:1.45; font-style:italic; color:#D9C4AC; }
+  .sub{ margin-top:3.4cqw; max-width:78%; font-size:3.4cqw; line-height:1.4; font-style:italic; color:#D9C4AC; }
   .sub b{ font-style:normal; font-weight:700; color:#FBF3E0; }
 
   .spacer{ flex:1 1 auto; min-height:2cqw; }
 
-  .bottom-text{ font-family:'Oswald',system-ui,-apple-system,sans-serif; font-weight:600;
+  .bottom-text{ align-self:flex-start; text-align:left; max-width:56%;
+    font-family:'Oswald',system-ui,-apple-system,sans-serif; font-weight:600;
     font-size:3cqw; letter-spacing:.08em; text-transform:uppercase; color:#D9C4AC; }
   .bottom-text b{ color:#FBF3E0; font-weight:800; }
 
-  .icon-slab{ position:absolute; z-index:3; width:26cqw; right:-4cqw; bottom:-3cqw; transform:rotate(6deg);
+  .icon-slab{ position:absolute; z-index:3; width:38cqw; right:-6cqw; bottom:-4cqw; transform:rotate(6deg);
     filter:drop-shadow(0 .8cqw 1.6cqw rgba(0,0,0,.4)); }
+
+  .arrow{ position:absolute; inset:0; z-index:3; width:100%; height:100%; pointer-events:none; }
 
   .meta{ width:min(100%,420px); background:var(--page-card); border:1px solid var(--page-line); border-radius:10px; padding:18px 18px 16px; }
   .meta h2{ font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--page-muted); font-family:'PT Serif',Georgia,serif; }
@@ -62,12 +68,18 @@
 <div class="pin">
   <div class="stage">
     <div class="eyebrow">без паники</div>
+    <div class="ege-word">ЕГЭ</div>
     <h1 class="head">ОСЕНЬ — НЕ ПОВОД<br>СХОДИТЬ С УМА</h1>
     <img class="hero" src="assets/real-candle.png" alt="">
-    <p class="sub">Пробники с таймером и разбор ошибок — <b>спокойно, по одной теме за раз</b>.</p>
+    <p class="sub" id="sub-text">Пробники с таймером и разбор ошибок — <b>спокойно, по одной теме за раз</b>.</p>
     <div class="spacer"></div>
     <div class="bottom-text"><b>ЕГЭ Тренажёр</b> · бесплатно</div>
   </div>
+  <svg class="arrow" viewBox="0 0 100 150" xmlns="http://www.w3.org/2000/svg">
+    <path d="M70,116 C77,120 81,122 85,127" fill="none" stroke="#FBF3E0" stroke-width="1.3"
+      stroke-dasharray="0.5,3.4" stroke-linecap="round" opacity="0.85"/>
+    <path d="M85,127 L80.3,124 L81.4,130.1 Z" fill="#FBF3E0" opacity="0.85"/>
+  </svg>
   <img class="icon-slab" src="assets/ege-trenazher-icon.png" alt="ЕГЭ Тренажёр">
 </div>
 
